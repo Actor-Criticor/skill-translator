@@ -25,7 +25,7 @@ from typing import Optional, Sequence
 HERE = Path(os.path.abspath(__file__)).parent
 NAME = "skill-translator"
 # 不必随包复制的内容（测试工作目录、审计证据、编译中间产物、缓存）
-SKIP_DIRS = {"adv", "__pycache__", ".pytest_cache"}
+SKIP_DIRS = {"adv", "__pycache__", ".pytest_cache", ".git", ".idea", ".vscode"}
 SKIP_SUFFIXES = {".aux", ".log", ".out", ".toc", ".fls", ".fdb_latexmk", ".pyc"}
 KEEP_LOGS = {"build_sample.log"}
 
@@ -41,7 +41,9 @@ def ignore(dirpath: str, names):
     ignored = []
     for n in names:
         p = Path(dirpath) / n
-        if n in SKIP_DIRS or n.startswith("_"):
+        # `.git`/`.gitignore` 等点开头的是仓库元数据，不属于技能内容；
+        # `_xxx` 是测试遗留的工作目录。两者都不部署。
+        if n in SKIP_DIRS or n.startswith("_") or n.startswith("."):
             ignored.append(n)
             continue
         if p.suffix.lower() in SKIP_SUFFIXES and n not in KEEP_LOGS:

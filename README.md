@@ -17,6 +17,13 @@
 DSH 的技能发现顺序（靠前者优先）：
 `<项目>/.dsh/skills` → `<项目>/.agents/skills` → **`~/.dsh/skills`（用户级：任意工作目录都可用）** → `~/.agents/skills`。
 
+### 方式 0：从 GitHub 一键装
+```powershell
+git clone https://github.com/Actor-Criticor/skill-translator
+cd skill-translator
+python install.py --force      # 装到 ~/.dsh/skills/skill-translator，全工作域可用
+```
+
 ### 方式 A：装到用户级（**全工作域可用**，推荐）
 ```powershell
 python <skill>/install.py            # 复制到 C:\Users\<你>\.dsh\skills\skill-translator
