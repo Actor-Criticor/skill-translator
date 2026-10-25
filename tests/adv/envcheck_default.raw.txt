@@ -1,0 +1,19 @@
+﻿=== paper2zh �����Լ� ===
+ƽ̨        : Windows-10-10.0.26200-SP0
+[v] Python      : Python 3.9.13�����㣩
+[v] PyMuPDF     : PyMuPDF PyMuPDF 1.26.5�����ʶ�� find_tables=����
+[v] LaTeX ����  : xelatex.EXE -> D:\texlive\2026\bin\windows\xelatex.EXE��XeTeX 3.141592653-2.6-0.999998 (TeX Live 2026)
+[v] ctex        : ctex ������ã�ctexart.cls / ctex.sty��
+[v] Fandol ���� : Fandol ����������ã�FandolSong-Regular.otf, FandolHei-Regular.otf, FandolFang-Regular.otf��
+[v] ����Ŀ¼    : ��д��D:\Desktop\DSH_work\SKILLs_creat\.dsh\skills\paper2zh\tests\adv\work
+
+ϵͳ�������壺
+  [v] SimSun�����壩  -> C:\Windows\Fonts\simsun.ttc
+  [v] SimHei�����壩  -> C:\Windows\Fonts\simhei.ttf
+  [v] Microsoft YaHei��΢���źڣ�  -> C:\Windows\Fonts\msyh.ttc
+  [v] Fandol��TeX Live �Դ����壩  -> fontconfig
+
+--- ���� ---
+[v] �������ã����Կ�ʼ��python extract.py <Ӣ���ڿ�.pdf> --out paper2zh-work
+
+˵������������ֻ���� Python + PyMuPDF���������� xelatex + ctex���Ű棩������Ҫ pandoc������Ҫ����������Ҫ�κ���ҵ���� API��

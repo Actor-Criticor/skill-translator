@@ -1,0 +1,25 @@
+﻿# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+
+# 运行产物 / 工作目录（不入库）
+translator-work/
+*-work/
+fontset-choice.json
+
+# LaTeX 中间产物（样张 .pdf/.png 保留）
+*.aux
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.xdv
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

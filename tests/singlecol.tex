@@ -1,0 +1,33 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\begin{document}
+
+\section{Unnumbered display equations}
+
+Single-column text with an unnumbered display formula:
+\[
+E = m c^{2}
+\]
+and a numbered one,
+\begin{equation}
+\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v}) = 0 .
+\end{equation}
+Also an inline formula $a_{i}^{2} + b_{i}^{2} = c_{i}^{2}$ with $p < 0.01$ and a value of
+$3.5 \times 10^{-4}$ m/s.
+
+\begin{table}[h]
+\centering
+\caption{Top-captioned table in a single-column layout.}
+\begin{tabular}{@{}lrr@{}}
+\toprule
+Item & Value & Unit \\
+\midrule
+alpha & 1.25 & mm \\
+beta  & 0.75 & mm \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}

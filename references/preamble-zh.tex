@@ -1,0 +1,75 @@
+% ============================================================================
+% skill-translator 中文版期刊论文模板（preamble 部分）
+%   用法：build.py 会自动把本文件 + 元数据 + 正文拼成 paper/paper.tex，
+%         因此不要在这里写 \begin{document}。
+%   字体：documentclass 用 fontset=none，具体的 CJK/西文字体由 build.py 探测生成的
+%         paper/fontset.tex 决定（Windows 宋体/黑体、macOS Songti、Linux Noto、
+%         TeX Live 自带 Fandol 兜底），以此做到"换一台电脑也能编"。
+%   编号：公式沿用原文编号（\tag{n}），图表按译文顺序自动编号；正文引用一律写文字
+%         「式(3)」「图1」「表2」，不使用 \eqref 跨语言引用。
+% ============================================================================
+\documentclass[11pt,a4paper,fontset=none]{ctexart}
+
+\usepackage{fontspec}
+\input{fontset.tex}
+
+\usepackage{amsmath,amssymb,amsfonts,bm}
+\usepackage{graphicx}
+\usepackage{booktabs,array,multirow,tabularx,longtable}
+\usepackage{caption}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{indentfirst}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage[hidelinks]{hyperref}
+
+\geometry{a4paper,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+% ---------- 中文排版常规 ----------
+\setlength{\parindent}{2em}
+\linespread{1.35}
+\setlength{\parskip}{0.15em}
+
+% ---------- 图表题注：中文黑体小号；表题在上、图题在下 ----------
+\captionsetup{font={sf,small},labelsep=quad,skip=5pt}
+\captionsetup[table]{position=top}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\arraystretch}{1.15}
+\setlength{\abovecaptionskip}{5pt}
+\setlength{\belowcaptionskip}{4pt}
+
+% ---------- 标题层级：黑体；最多三级 ----------
+\ctexset{
+  section/format     = \large\bfseries\heiti,
+  subsection/format  = \normalsize\bfseries\heiti,
+  subsubsection/format = \normalsize\bfseries\heiti,
+  paragraph/format   = \normalsize\bfseries\heiti,
+}
+
+% ---------- 素材路径：图片在 extracted/figures，表格在 extracted/tables ----------
+\graphicspath{{../extracted/figures/}{./figures/}{./assets/}{../extracted/tables/}}
+\makeatletter
+\def\input@path{{../extracted/tables/}{../extracted/equations/draft/}{./}}
+\makeatother
+
+% ---------- 页眉页脚 ----------
+\newcommand{\pTwoZHead}{}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[C]{\small\pTwoZHead}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% 公式可跨页；略宽松的断行容忍度（中文+长公式+DOI 链接），避免大量 Overfull
+\allowdisplaybreaks
+\sloppy
+
+% 论文里常见的写法别名
+\providecommand{\eqnref}[1]{式(#1)}
+\providecommand{\figref}[1]{图#1}
+\providecommand{\tabref}[1]{表#1}
